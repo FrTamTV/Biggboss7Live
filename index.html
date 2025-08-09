@@ -30,34 +30,16 @@
             flex: 1;
             overflow: hidden;
         }
-        .twitch-video {
+        .video-container {
             flex: 3;
             border-right: 2px solid #1f1f23;
             position: relative;
         }
-        .offline-message {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 1.5rem;
-            color: #ff4d4d;
-            text-align: center;
-            background: rgba(0,0,0,0.6);
-            padding: 20px;
-            border-radius: 10px;
-            display: none;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
-        }
-        .twitch-chat {
+        .chat-container {
             flex: 1;
             background-color: #1f1f23;
         }
-        iframe {
+        .video-iframe, .chat-iframe {
             border: none;
             width: 100%;
             height: 100%;
@@ -105,44 +87,21 @@
         <h1>👁️ BiggBoss Season 7 Live Watch Party 👁️</h1>
     </header>
     <div class="content">
-        <div class="twitch-video">
-            <iframe id="twitch-player" src="https://player.twitch.tv/?channel=YOUR_TWITCH_USERNAME&parent=yourwebsite.com" allowfullscreen></iframe>
-            <div class="offline-message" id="offline-message">🚫 STREAM IS OFFLINE 🚫<br>COME BACK AFTER SOMETIME</div>
+        <div class="video-container">
+            <iframe class="video-iframe" width="560" height="315" src="https://www.youtube.com/embed/wEO5aT95vqU?si=-ZfwfAQaqCTWSdAI&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-        <div class="twitch-chat">
-            <iframe src="https://www.twitch.tv/embed/YOUR_TWITCH_USERNAME/chat?parent=yourwebsite.com"></iframe>
+        <div class="chat-container">
+            <iframe class="chat-iframe" src="https://studio.youtube.com/live_chat?is_popout=1&v=wEO5aT95vqU"></iframe>
         </div>
     </div>
     <footer>
-        <p>Watch live on <a href="https://twitch.tv/YOUR_TWITCH_USERNAME" target="_blank">Twitch</a></p>
+        <p>Watch and chat live on YouTube</p>
         <div class="discord-section">
             <a href="https://discord.gg/cMWygkZdyK" target="_blank">
                 <button class="discord-btn">Join Discord</button>
             </a>
-            <p class="discord-text">For updates when the stream goes offline, join our Discord!</p>
+            <p class="discord-text">For updates, join our Discord!</p>
         </div>
     </footer>
-
-    <script>
-        async function checkStreamStatus() {
-            try {
-                const response = await fetch('https://api.twitch.tv/helix/streams?user_login=YOUR_TWITCH_USERNAME', {
-                    headers: {
-                        'Client-ID': 'YOUR_TWITCH_CLIENT_ID',
-                        'Authorization': 'Bearer YOUR_TWITCH_ACCESS_TOKEN'
-                    }
-                });
-                const data = await response.json();
-                if (!data.data || data.data.length === 0) {
-                    document.getElementById('twitch-player').style.display = 'none';
-                    document.getElementById('offline-message').style.display = 'block';
-                }
-            } catch (error) {
-                console.error('Error checking Twitch stream status:', error);
-            }
-        }
-        checkStreamStatus();
-    </script>
 </body>
 </html>
-
