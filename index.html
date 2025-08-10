@@ -98,11 +98,11 @@
                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                             </span>
-                            <span id="online-count">0</span> online
+                            <span id="online-count">0</span> Watching
                         </div>
                     </div>
                 </header>
-
+                
                 <!-- Chat Messages Display Area -->
                 <div id="chat-messages" class="flex-grow p-4 overflow-y-auto custom-scrollbar space-y-4">
                     <!-- Chat messages will be dynamically added here -->
@@ -234,7 +234,7 @@
         };
 
         /**
-         * Sets up a real-time listener for online user count.
+         * Sets up a real-time listener for online user count and displays names.
          */
         const setupOnlineCountListener = () => {
             if (!db) {
@@ -242,19 +242,18 @@
                 return;
             }
             const usersCollection = collection(db, `artifacts/${appId}/public/data/users`);
+            const usersQuery = query(usersCollection);
 
-            // Listen for changes in the users collection
-            unsubscribeOnline = onSnapshot(usersCollection, (snapshot) => {
-                const now = serverTimestamp();
+            unsubscribeOnline = onSnapshot(usersQuery, (snapshot) => {
                 let onlineCount = 0;
-                
+
                 snapshot.forEach((doc) => {
                     const userData = doc.data();
-                    // Check if the user's last activity was within the last 5 minutes
-                    if (userData.lastActive && now && now.seconds - userData.lastActive.seconds < 300) {
+                    if (userData.lastActive && userData.lastActive.seconds > (Date.now() / 1000) - 300) {
                         onlineCount++;
                     }
                 });
+
                 onlineCountElement.textContent = onlineCount;
             });
         };
