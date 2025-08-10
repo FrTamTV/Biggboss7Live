@@ -3,105 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BiggBoss Season 7 Live</title>
+    <title>BIGG BOSS SEASON 7</title>
+    
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts for a clean, modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* Applying the Inter font to the whole page */
         body {
-            background-color: #0e0e10;
-            color: #fff;
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
-        header {
-            background-color: #1f1f23;
-            text-align: center;
-            padding: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-        }
-        header h1 {
-            margin: 0;
-            font-size: 1.8rem;
-            color: #9146FF;
-        }
-        .content {
-            display: flex;
-            flex: 1;
-            overflow: hidden;
-        }
-        .video-container {
-            flex: 3;
-            border-right: 2px solid #1f1f23;
-            position: relative;
-        }
-        .chat-container {
-            flex: 1;
-            background-color: #1f1f23;
-        }
-        .video-iframe, .chat-iframe {
-            border: none;
-            width: 100%;
-            height: 100%;
-        }
-        footer {
-            background-color: #1f1f23;
-            padding: 15px;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-        a {
-            color: #9146FF;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .discord-section {
-            margin-top: 15px;
-        }
-        .discord-btn {
-            background-color: #5865F2;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.2s ease, background-color 0.3s ease;
-        }
-        .discord-btn:hover {
-            background-color: #4752C4;
-            transform: scale(1.05);
-        }
-        .discord-text {
-            margin-top: 8px;
-            font-size: 0.85rem;
-            color: #ccc;
+            font-family: 'Inter', sans-serif;
         }
     </style>
 </head>
-<body>
-    <header>
-        <h1>👁️ BiggBoss Season 7 Live Watch Party 👁️</h1>
-    </header>
-    <div class="content">
-        <div class="video-container">
-            <iframe class="video-iframe" width="560" height="315" src="https://www.youtube.com/embed/wEO5aT95vqU?si=-ZfwfAQaqCTWSdAI&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <div class="chat-container">
-            <iframe class="chat-iframe" src="https://studio.youtube.com/live_chat?is_popout=1&v=wEO5aT95vqU"></iframe>
-        </div>
+<body class="bg-gray-900 text-white antialiased">
+
+    <!-- Main container for the content -->
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+
+        <!-- Header Section -->
+        <header class="text-center mb-8 md:mb-12">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+                BIGBOSS SEASON 7 WATCH PARTY
+            </h1>
+            <p class="mt-3 text-base sm:text-lg text-gray-400 max-w-2xl mx-auto">
+                A short, engaging description of your video content goes here.
+            </p>
+        </header>
+
+        <!-- Video Player Section -->
+        <main>
+            <div class="max-w-4xl mx-auto">
+                <!-- 
+                  This div creates a responsive container that maintains a 16:9 aspect ratio.
+                  This is the standard for most video content.
+                -->
+                <div class="aspect-w-16 aspect-h-9 bg-gray-800 rounded-lg shadow-2xl overflow-hidden">
+                    <!-- 
+                      ==================================================================
+                      == PASTE YOUR EMBED CODE (e.g., from YouTube, Vimeo) HERE       ==
+                      == Replace the example iframe below with your own.              ==
+                      == Make sure your iframe has the classes:                     ==
+                      == "w-full h-full" to fill the container.                     ==
+                      ==================================================================
+                    -->
+                    <iframe 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        class="w-full h-full">
+                    </iframe>
+                </div>
+            </div>
+        </main>
+
+        <!-- Optional Content Section -->
+        <section class="mt-8 md:mt-12 max-w-3xl mx-auto">
+            <h2 class="text-2xl font-semibold text-white mb-4">About This</h2>
+            <div class="prose prose-invert prose-lg text-gray-300">
+                <p>
+                    This is a watchparty of Bigboss Season 7 it may be ge interupt so refrest it
+                </p>
+            </div>
+        </section>
+
     </div>
-    <footer>
-        <p>Watch and chat live on YouTube</p>
-        <div class="discord-section">
-            <a href="https://discord.gg/cMWygkZdyK" target="_blank">
-                <button class="discord-btn">Join Discord</button>
-            </a>
-            <p class="discord-text">For updates, join our Discord!</p>
-        </div>
-    </footer>
+    
+    <!-- This plugin is required for the aspect-ratio utility to work -->
+    <script>
+      tailwind.config = {
+        plugins: [
+          require('@tailwindcss/aspect-ratio'),
+          require('@tailwindcss/typography'),
+        ],
+      }
+    </script>
 </body>
 </html>
