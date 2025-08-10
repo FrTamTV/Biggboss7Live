@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BIGG BOSS SEASON 7</title>
     
-    <!-- Tailwind CSS for modern styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 
+      Tailwind CSS for modern styling.
+      The 'typography' plugin is now included directly in the script URL.
+    -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     
     <!-- Google Fonts for a clean, modern look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,21 +31,17 @@
         <!-- Header Section -->
         <header class="text-center mb-8 md:mb-12">
             <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-                BIGBOSS SEASON 7 WATCH PARTY
+                BIGG BOSS SEASON 7 WATCH PARTY
             </h1>
-            <p class="mt-3 text-base sm:text-lg text-gray-400 max-w-2xl mx-auto">
-                A short, engaging description of your video content goes here.
-            </p>
         </header>
 
         <!-- Video Player Section -->
         <main>
             <div class="max-w-4xl mx-auto">
                 <!-- 
-                  This div creates a responsive container that maintains a 16:9 aspect ratio.
-                  This is the standard for most video content.
+                  FIXED: This div now uses the 'aspect-video' class to enforce a 16:9 aspect ratio.
                 -->
-                <div class="aspect-w-16 aspect-h-9 bg-gray-800 rounded-lg shadow-2xl overflow-hidden">
+                <div class="aspect-video bg-gray-800 rounded-lg shadow-2xl overflow-hidden">
                     <!-- 
                       ==================================================================
                       == PASTE YOUR EMBED CODE (e.g., from YouTube, Vimeo) HERE       ==
@@ -65,24 +64,18 @@
 
         <!-- Optional Content Section -->
         <section class="mt-8 md:mt-12 max-w-3xl mx-auto">
-            <h2 class="text-2xl font-semibold text-white mb-4">About This</h2>
+            <h2 class="text-2xl font-semibold text-white mb-4">About This Video</h2>
             <div class="prose prose-invert prose-lg text-gray-300">
                 <p>
-                    This is a watchparty of Bigboss Season 7 it may be ge interupt so refrest it
+                    This is a watch party of Bigboss Season 7.
+                </p>
+                <p>
+                    Sometimes the stream may get interrupted, so please refresh this page or come back later if you experience issues.
                 </p>
             </div>
         </section>
 
     </div>
     
-    <!-- This plugin is required for the aspect-ratio utility to work -->
-    <script>
-      tailwind.config = {
-        plugins: [
-          require('@tailwindcss/aspect-ratio'),
-          require('@tailwindcss/typography'),
-        ],
-      }
-    </script>
 </body>
 </html>
